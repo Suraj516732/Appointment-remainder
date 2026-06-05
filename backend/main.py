@@ -8,10 +8,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from database import SessionLocal, engine, Base
 from models import Appointment
 from whatsapp import send_whatsapp
+from dotenv import load_dotenv
+
+
 
 app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
+
+
+load_dotenv()
 
 
 class AppointmentRequest(BaseModel):
@@ -117,4 +123,13 @@ def get_appointments():
         for a in appointments
     ]
     db.close()
-    return data
+    return data
+
+
+
+
+
+import os
+
+print("SID loaded:", bool(os.getenv("TWILIO_ACCOUNT_SID")))
+print("TOKEN loaded:", bool(os.getenv("TWILIO_AUTH_TOKEN")))
