@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments Dashboard | Appointment Reminder System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-icon">A</div>
+                <div class="logo-title">
+                    <h1>Appointments Dashboard</h1>
+                    <p>All scheduled appointments</p>
+                </div>
+            </div>
+            <div>
+                <!-- Create New Appointment Button -->
+                <a href="index.html" class="btn btn-primary btn-sm">
+                    <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                    Create New Appointment
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main>
+        
+        <!-- Stats summary cards for high-fidelity SaaS dashboard appearance -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <div class="stat-details">
+                    <h3>Total Appointments</h3>
+                    <div id="statTotal" class="stat-value">-</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon" style="background-color: var(--success-light); color: var(--success);">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                    </svg>
+                </div>
+                <div class="stat-details">
+                    <h3>Upcoming Soonest</h3>
+                    <div id="statNext" class="stat-value" style="font-size: 1.1rem; line-height: 1.4;">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Table / Content Card -->
+        <div class="table-card">
+            
+            <!-- Table element -->
+            <div class="table-responsive">
+                <table class="table" id="appointmentsTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;">ID</th>
+                            <th>Customer Name</th>
+                            <th>Phone Number</th>
+                            <th>Appointment Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Skeletons render during load -->
+                        <tr class="skeleton-row">
+                            <td><div class="skeleton-text" style="width: 40px;"></div></td>
+                            <td><div class="skeleton-text" style="width: 140px;"></div></td>
+                            <td><div class="skeleton-text" style="width: 120px;"></div></td>
+                            <td><div class="skeleton-text" style="width: 180px;"></div></td>
+                        </tr>
+                        <tr class="skeleton-row">
+                            <td><div class="skeleton-text" style="width: 40px;"></div></td>
+                            <td><div class="skeleton-text" style="width: 160px;"></div></td>
+                            <td><div class="skeleton-text" style="width: 100px;"></div></td>
+                            <td><div class="skeleton-text" style="width: 180px;"></div></td>
+                        </tr>
+                        <tr class="skeleton-row">
+                            <td><div class="skeleton-text" style="width: 40px;"></div></td>
+                            <td><div class="skeleton-text" style="width: 110px;"></div></td>
+                            <td><div class="skeleton-text" style="width: 115px;"></div></td>
+                            <td><div class="skeleton-text" style="width: 180px;"></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty State Display -->
+            <div id="emptyState" class="empty-state">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h3>No Appointments Scheduled</h3>
+                <p>There are currently no customer appointments on the books. Get started by booking a new one.</p>
+                <a href="index.html" class="btn btn-primary" style="width: auto;">
+                    Schedule Appointment
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Floating Toast Overlay container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

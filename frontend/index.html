@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Appointment | Appointment Reminder System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-icon">A</div>
+                <div class="logo-title">
+                    <h1>Appointment Reminder System</h1>
+                    <p>Create and manage customer appointments</p>
+                </div>
+            </div>
+            <div>
+                <!-- Extra desktop nav elements if needed, or empty -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main>
+        <div class="form-container">
+            <div class="card">
+                
+                <div class="card-header">
+                    <h2>Book Appointment</h2>
+                    <p>Enter details below to schedule an appointment</p>
+                </div>
+
+                <!-- Alert Banner for Inline Message Feedback -->
+                <div id="alertBanner" class="alert">
+                    <svg class="alert-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d=""></path>
+                    </svg>
+                    <span id="alertMessage" class="alert-message"></span>
+                </div>
+
+                <!-- Appointment Form -->
+                <form id="appointmentForm" novalidate>
+                    
+                    <!-- Customer Name -->
+                    <div class="form-group">
+                        <label for="name" class="form-label">Customer Name</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                            </span>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                class="form-control" 
+                                placeholder="John Doe" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </span>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                class="form-control" 
+                                placeholder="+1 (555) 000-0000" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Appointment Date & Time -->
+                    <div class="form-group">
+                        <label for="time" class="form-label">Appointment Date & Time</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                            </span>
+                            <input 
+                                type="datetime-local" 
+                                id="time" 
+                                class="form-control" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" class="btn btn-primary">
+                        <div class="spinner"></div>
+                        <span>Create Appointment</span>
+                    </button>
+                </form>
+
+                <!-- Footer with Navigation to Dashboard -->
+                <div class="card-footer">
+                    <p class="card-footer-text">Want to see existing appointments?</p>
+                    <a href="dashboard.html" class="btn btn-outline">
+                        <svg style="width: 1.25rem; height: 1.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path>
+                        </svg>
+                        View Dashboard
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Toast Overlay container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
